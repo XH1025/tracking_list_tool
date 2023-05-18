@@ -153,7 +153,7 @@ button2.pack(padx=5, pady=5, side="left")
 
 
 # 设置窗口大小
-window.geometry("1300x650")
+window.geometry("1920x1080")
 
 # 创建表格，用于显示筛选结果
 result_table = ttk.Treeview(window)
@@ -161,16 +161,20 @@ result_table = ttk.Treeview(window)
 # 添加表格列
 result_table["columns"] = ("项目序号", "任务名称", "责任人",
                            "开始时间", "完成时间", "计划天数", "实际完成情况")
+# 设置表格的样式
+style = ttk.Style()
+style.configure("Custom.Treeview", rowheight=70)  # 设置行高为70
+result_table.configure(style="Custom.Treeview")
 
 # 设置表格列属性
 result_table.column("#0", width=0, stretch=tk.NO)
-result_table.column("项目序号", anchor=tk.CENTER, width=30)
-result_table.column("任务名称", anchor=tk.CENTER, width=300)
-result_table.column("责任人", anchor=tk.CENTER, width=66)
-result_table.column("开始时间", anchor=tk.CENTER, width=80)
-result_table.column("完成时间", anchor=tk.CENTER, width=80)
-result_table.column("计划天数", anchor=tk.CENTER, width=30)
-result_table.column("实际完成情况", anchor=tk.CENTER, width=50)
+result_table.column("项目序号", anchor=tk.CENTER, width=13)
+result_table.column("任务名称", anchor=tk.CENTER, width=950)
+result_table.column("责任人", anchor=tk.CENTER, width=16)
+result_table.column("开始时间", anchor=tk.CENTER, width=35)
+result_table.column("完成时间", anchor=tk.CENTER, width=35)
+result_table.column("计划天数", anchor=tk.CENTER, width=10)
+result_table.column("实际完成情况", anchor=tk.CENTER, width=25)
 
 
 # 添加表头
